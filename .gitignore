@@ -4,6 +4,9 @@ GLFW/
 # Prerequisites
 *.d
 
+#imgui cache
+imgui.ini
+
 # Compiled Object files
 *.slo
 *.lo
