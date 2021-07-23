@@ -12,9 +12,29 @@
 #include "resources/Sun.hpp"
 #include "pncraft.hpp"
 
+#include "NET/network.hpp"
+
+#include <pthread.h>
+
+void u_print_vec(float pos[3]) {
+    std::cout << "(" << pos[0] << ", " << pos[1] << ", " << pos[2] << ")\n";
+}
+
 class SandBox {
 public:
     SandBox() {
+        positions_socket = make_socket(&this->ID, LISTENER);
+        main_socket = make_socket(&this->ID, PLAYER);
+        std::cout << "[Server] ID: " << this->ID << "\n";
+        char ans;
+        if (main_socket == -1) {
+            std::cout << "[Server] Connection failed\nProceed? [Y/n] ";
+            std::cin >> ans;
+            if(tolower(ans) != 'y') {
+                destruct();
+            }
+        }
+
         srand(time(NULL));
         window = glutilInit(3, 3, Screen::W, Screen::H, "Minecraft clone!!");
         if(!window){
@@ -37,10 +57,15 @@ public:
         sun = new Sun(sunpos);
 
         clear_color = {0.45f, 0.55f, 0.60f, 1.00f};
-
+        
         init_imgui();
+        init_net();
     }
     ~SandBox(){
+        destruct();
+    }
+    void destruct() {
+        close_conn(this->main_socket);
         delete sun;
         delete world;
         std::cout << "﫟 World deleted succesfully.\n";
@@ -54,6 +79,7 @@ public:
         std::cout << "Window destroyed\n";
         glfwTerminate();
         std::cout << "GLFW terminate\n";
+
     }
     void on_update(bool gui=true){
         poll_events();
@@ -81,9 +107,20 @@ public:
             ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
         }
 		glfwSwapBuffers(window);
+        if (MC::MMO) {
+            send_info_to_server();
+            u_print_vec(Net::player.pos);     
+        }
     }
 
 private:
+    void send_info_to_server() {
+        send_position(main_socket, this->ID, &Cam::instance.get_position().x, &Cam::instance.get_lookat().x);
+    }
+    void init_net() {
+        int arr[2] = {positions_socket, this->ID};
+        pthread_create(&this->players_thread, NULL, recieve_players_pos, (void *)&arr[0]);
+    }
     void on_GUI_update(){
         ImGui::Begin("Main tweaks");
         
@@ -180,6 +217,9 @@ private:
     Sun* sun;
     GLFWwindow* window;
     glm::vec4 clear_color;
+    i32 main_socket, positions_socket;
+    i32 ID;
+    pthread_t players_thread;
 
 public:
     bool open(){

@@ -14,7 +14,7 @@ CPPFLAGS += -I include/ -I dependencies/ -I$(IMGUIDIR)
 #all: dirs bin/program
 
 default: 
-	$(CXX) -c $(CXXFLAGS) $(CPPFLAGS) -o bin/main.o main.cpp -g
+	$(CXX) -c $(CXXFLAGS) $(CPPFLAGS) -o bin/main.o main.cpp -g 
 	$(CXX) -o bin/program bin/*.o $(LDFLAGS) -g
 
 imgui:
@@ -35,6 +35,7 @@ znoise:
 	$(CXX) -o bin/Simplex.o 	-c -c src/ZNOISE_SRC/Simplex.cpp 		 -I dependencies/ZNOISE_INCLUDE/
 	$(CXX) -o bin/Worley.o 	-c -c src/ZNOISE_SRC/Worley.cpp 		 -I dependencies/ZNOISE_INCLUDE/
 
-
+#NET: 
+#	$(CC) -o bin/Net.o -c src/NET/network.cpp -I include/
 clean: 
 	rm -rf bin/*

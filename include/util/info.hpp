@@ -3,6 +3,7 @@
 
 
 #include "util/camera.hpp"
+#include <vector>
 
 namespace Screen {
     int W = 960;
@@ -22,11 +23,20 @@ namespace Cam {
 
 
 
+namespace Net {
+    struct  FS{
+        f32 pos[3];
+        f32 lookat[3];
+    };
+    FS player;
+};
+
 namespace MC {
     bool toggle_wireframe = false;
     bool shifting = false; 
     bool pressed_cursor = false, CURSOR_ON = false;
     bool GUI_ON = false;
+    bool MMO = true;
 
 
     f32 deltaTime = 0.0f;

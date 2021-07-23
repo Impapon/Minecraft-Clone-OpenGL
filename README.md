@@ -1,6 +1,11 @@
 # Minecraft-Clone-OpenGL
+<<<<<<< HEAD
 # Video Funcionalidad:
   <a href="https://youtu.be/zAWTC7hJrO8">https://youtu.be/zAWTC7hJrO8</a>
+=======
+# Video:
+  <a href="https://youtu.be/IqDn1f2CQKE">https://youtu.be/IqDn1f2CQKE</a>
+>>>>>>> 91471182c0b907a68732a24c4b2eae3cf4409b79
   
 # <b>To exec:</b>
 ```bash
@@ -23,7 +28,7 @@ cd Minecraft-Clone-OpenGL
 
 # Screenshots
   ![image](https://user-images.githubusercontent.com/48858334/124336802-20004300-db65-11eb-989a-95e15dc3df8e.png)
-![image](https://user-images.githubusercontent.com/48858334/124336821-3f976b80-db65-11eb-9afd-c24c3236abbd.png)
+  ![image](https://user-images.githubusercontent.com/48858334/124336821-3f976b80-db65-11eb-9afd-c24c3236abbd.png)
 
 
 

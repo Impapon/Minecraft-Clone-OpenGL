@@ -214,11 +214,11 @@ public:
             generate_chunks();
         }
         
-        monito->pos.x = 65*sin(current_frame*0.01);
-        monito->pos.y = 10*sin(current_frame*0.1) + WATER_LEVEL + 20;
-        monito->pos.z = 65*cos(current_frame*0.01);
-        sunobj->pos.x = SunWide*sin(current_frame*SunSpeed);
-        sunobj->pos.z = SunWide*cos(current_frame*SunSpeed);
+        //monito->pos.x = 65*sin(current_frame*0.01);
+        //monito->pos.y = 10*sin(current_frame*0.1) + WATER_LEVEL + 20;
+        //monito->pos.z = 65*cos(current_frame*0.01);
+        //sunobj->pos.x = SunWide*sin(current_frame*SunSpeed);
+        //sunobj->pos.z = SunWide*cos(current_frame*SunSpeed);
 
 
 

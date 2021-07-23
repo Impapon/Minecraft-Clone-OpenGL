@@ -10,6 +10,7 @@ public:
     f32 scale_value = 1.0f;
     ui32 tilemap;
     bool textured;
+    bool visible;
     Object(const std::string& shadersPath, 
            const std::string& modelPath, 
            const std::string& modelName, 
@@ -22,7 +23,7 @@ public:
         
 		this->model_matrix = glm::mat4(1.0f);
 		this->model_matrix = glm::translate(this->model_matrix, pos);
-
+        visible = true;
         if(this->textured){
             tilemap = main_shader->loadTexture(textureName);
         }

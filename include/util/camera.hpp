@@ -36,6 +36,7 @@ public:
 				mouseSensitivity(0.1f), speed(2.5f) {
 		updateVectors();
 	}
+	glm::vec3& get_lookat() { return lookat; }
     void set_speed(const f32& speed) { this->speed = speed; }
 	glm::mat4 getViewM4() {
 		return glm::lookAt(pos, pos + lookat, up);
