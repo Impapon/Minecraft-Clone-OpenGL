@@ -1,5 +1,5 @@
 # Minecraft-Clone-OpenGL
-Trabajo Final de Computaci
+Trabajo Final de Computación gráfica 2021-1 UPC
 ## Video:
   <a href="https://youtu.be/IqDn1f2CQKE">https://youtu.be/IqDn1f2CQKE</a>
   
