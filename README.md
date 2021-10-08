@@ -1,11 +1,7 @@
 # Minecraft-Clone-OpenGL
-<<<<<<< HEAD
-# Video Funcionalidad:
-  <a href="https://youtu.be/zAWTC7hJrO8">https://youtu.be/zAWTC7hJrO8</a>
-=======
-# Video:
+Trabajo Final de Computaci
+## Video:
   <a href="https://youtu.be/IqDn1f2CQKE">https://youtu.be/IqDn1f2CQKE</a>
->>>>>>> 91471182c0b907a68732a24c4b2eae3cf4409b79
   
 # <b>To exec:</b>
 ```bash
